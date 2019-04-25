@@ -50,19 +50,30 @@ export default {
     let {data}= await axios.get('http://127.0.0.1:3001/index');
     return {carouselList:data}
   },
+  data(){
+    return {
+      title:'小华科技有限公司'
+    }
+  },
+  head(){
+    return {
+      title:this.title,
+      meta:[
+        {hid:"description",name:"description",content:"小华科技有限公司,公司介绍"}
+      ]
+    }
+  },
+  transition:{
+    name:'test',
+  },
   created(){
-
+    
   },
   mounted(){
-    //this.getCList();
+    
   },
   methods:{
-    getCList(){
-      var self=this;
-      this.$axios.get('http://127.0.0.1:3001/index').then(res=>{
-        self.carouselList=res.data;
-      })
-    }
+
   }
 }
 

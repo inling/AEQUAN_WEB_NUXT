@@ -8,7 +8,8 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    //title: pkg.name,
+    title:'小华科技有限公司',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -28,7 +29,8 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    'element-ui/lib/theme-chalk/index.css'
+    'element-ui/lib/theme-chalk/index.css',
+    'assets/css/global.css'
   ],
 
   /*
@@ -63,5 +65,9 @@ module.exports = {
     */
     extend(config, ctx) {
     }
+  },
+  server:{
+    port:'3000',
+    host:'127.0.0.1'
   }
 }

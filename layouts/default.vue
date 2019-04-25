@@ -86,22 +86,6 @@ export default {
 </script>
 
 <style lang="scss">
-  *{
-    margin:0;
-    padding:0;
-  }
-
-  a{
-    text-decoration: none;
-  }
-
-  .bg-purple-dark {
-    background: #7D7F84;
-  }
-  .grid-content {
-    min-height: 35px;
-  }
-
   .el-carousel{
     border-bottom: 1px solid #d4d4d4;
     box-shadow: 0px 1px 48px #d4d4d4;

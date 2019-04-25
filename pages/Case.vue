@@ -9,25 +9,36 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
+  async asyncData({isDev, route, store, env, params, query, req, res, redirect, error}) {
+    let {data} = await axios.get('http://127.0.0.1:3001/index/cases');
+    return {carouselList:data};
+  },
   data(){
     return {
-      carouselList:[]
+      title:'小华科技有限公司-项目案例'
     }
-  },  
+  },
+  head(){
+    return {
+      title:this.title,
+      meta:[
+        {hid:'description',name:'description',content:'小华科技有限公司,项目案例,世贸广场,隐居桃园酒店,留香园,城中公园'}
+      ]
+    }
+  },
+  transition:{
+    name:"test"
+  },
   created(){
 
   },
   mounted(){
-    this.getCList();
+    
   },
   methods:{
-    getCList(){
-      var self=this;
-      this.$axios.get('http://127.0.0.1:3001/index/cases').then(res=>{
-        self.carouselList=res.data;
-      })
-    }
+  
   }
 }
 </script>

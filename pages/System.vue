@@ -9,25 +9,36 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
+  async asyncData({isDev, route, store, env, params, query, req, res, redirect, error}) {
+    let {data} = await axios.get('http://127.0.0.1:3001/index/system');
+    return {carouselList:data}
+  },
   data(){
     return {
-      carouselList:[]
+      title:'小华科技有限公司-系统介绍'
     }
+  },
+  head(){
+    return {
+      title:this.title,
+      meta:[
+        {hid:'description',name:'description',content:'小华科技有限公司,系统介绍'}
+      ]
+    }
+  },
+  transition:{
+    name:"test"
   },
   created(){
 
   },
   mounted(){
-    this.getCList();
+
   },
   methods:{
-    getCList(){
-      var self=this;
-      this.$axios.get('http://127.0.0.1:3001/index/system').then(res=>{
-        self.carouselList=res.data;
-      })
-    }
+
   }
 }
 </script>

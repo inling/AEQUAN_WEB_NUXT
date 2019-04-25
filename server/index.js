@@ -1,7 +1,13 @@
 const express = require('express')
+const bodyParser=require('body-parser')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
+
+app.use(bodyParser.urlencoded({
+  extended:false
+}))
+
 
 // Import and Set Nuxt.js options
 let config = require('../nuxt.config.js')
@@ -30,5 +36,7 @@ async function start() {
     message: `Server listening on http://${host}:${port}`,
     badge: true
   })
+
 }
 start()
+

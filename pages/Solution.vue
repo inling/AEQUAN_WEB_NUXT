@@ -9,25 +9,36 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
+  async asyncData({isDev, route, store, env, params, query, req, res, redirect, error}) {
+    let {data}=await axios.get('http://127.0.0.1:3001/index/solution');
+    return {carouselList:data}
+  },
   data(){
     return {
-      carouselList:[]
+      title:'小华科技有限公司-解决方案'
     }
+  },
+  head(){
+    return {
+      title:this.title,
+      meta:[
+        {hid:'description',name:'description',content:'小华科技有限公司,解决方案,集中式总线解决方案,分布式总线解决方案,安e无线解决方案'}
+      ]
+    }
+  },
+  transition:{
+    name:"test"
   },
   created(){
 
   },
   mounted(){
-    this.getCList();
+    
   },
   methods:{
-    getCList(){
-      var self=this;
-      this.$axios.get('http://127.0.0.1:3001/index/solution').then(res=>{
-        self.carouselList=res.data;
-      })
-    }
+    
   }
 }
 </script>

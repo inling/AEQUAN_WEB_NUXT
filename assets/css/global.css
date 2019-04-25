@@ -1,0 +1,22 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+a{
+  text-decoration: none;
+}
+
+.bg-purple-dark {
+  background: #7D7F84;
+}
+.grid-content {
+  min-height: 35px;
+}
+
+.test-enter-active, .test-leave-active {
+  transition: opacity .4s;
+}
+.test-enter, .test-leave-active {
+  opacity: 0;
+}

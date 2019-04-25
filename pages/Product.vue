@@ -9,25 +9,36 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
+  async asyncData({isDev, route, store, env, params, query, req, res, redirect, error}) {
+    let {data}=await axios.get('http://127.0.0.1:3001/index/product');
+    return {carouselList:data}
+  },
   data(){
     return {
-      carouselList:[]
+      title:'小华科技有限公司-产品介绍'
     }
+  },
+  head(){
+    return {
+      title:this.title,
+      meta:[
+        {hid:'description',name:'description',content:'小华科技有限公司,产品介绍,移动客户端,管理网关,智能控制,电动窗帘,家庭娱乐,影音多媒体,看护摄像机,视频监控,背景音乐'}
+      ]
+    }
+  },
+  transition:{
+    name:"test"
   },
   created(){
 
   },
   mounted(){
-    this.getCList();
+
   },
   methods:{
-    getCList(){
-      var self=this;
-      this.$axios.get('http://127.0.0.1:3001/index/product').then(res=>{
-        self.carouselList=res.data;
-      })
-    }
+
   }
 }
 </script>
